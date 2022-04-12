@@ -28,9 +28,9 @@ class Board {
 	}
 	
     setEdgeThikness(){
-        let thikness = (Board.BOXES_COUNT<=25) ? 16 :
-					   (Board.BOXES_COUNT<=100) ? 10 :
-					   (Board.BOXES_COUNT<=200) ? 6 : 3
+        let thikness = (Board.BOXES_COUNT<=25) ? 10 :
+					   (Board.BOXES_COUNT<=100) ? 8 :
+					   (Board.BOXES_COUNT<=200) ? 5 : 3
         document.querySelector(':root').style.setProperty('--edge-thikness', `${thikness}px`)
     }
 
