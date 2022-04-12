@@ -146,7 +146,7 @@ body {
 .player .filled-boxes {
 	display: inline-block;
 	text-align: center;
-	width: 38px;
+	width: 48px;
 	margin-right: 4px;
 	background-color: rgb(136, 136, 136);
 	border: solid 3px #111;
