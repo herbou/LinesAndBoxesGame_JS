@@ -47,9 +47,15 @@ class Game {
         })
         
         setTimeout(() => {
-            this.playerNameUI.parentElement.textContent = `${player.name} wins`
-            this.playerTurnBgUI.classList.add("win")
-            this.playerTurnBgUI.style.background = player.color
+	    if (this.players[0].filledBoxes == this.players[1].filledBoxes{
+            	this.playerNameUI.parentElement.textContent = "Nobody wins"
+            	this.playerTurnBgUI.classList.add("no-win")
+            	this.playerTurnBgUI.style.background = "#eaeaea"
+	    }else{
+            	this.playerNameUI.parentElement.textContent = `${player.name} wins`
+            	this.playerTurnBgUI.classList.add("win")
+            	this.playerTurnBgUI.style.background = player.color
+	    }
         }, 500)
     }
 
