@@ -43,7 +43,7 @@ body {
 }
 .box.filled::after {
 	position: absolute;
-	z-index: 10;
+	z-index: 15;
 	background: rgb(255, 255, 255);
 	opacity: 0;
 	content: "";
