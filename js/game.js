@@ -19,8 +19,8 @@ class Game {
         }
 
         this.players = [
-            { name:"Alex", color:"#ff22ee", filledBoxes:0 },
-            { name:"John", color:"#22ebff", filledBoxes:0 }
+            { name:"Alex", color:"#ff50e5", filledBoxes:0 },
+            { name:"John", color:"#32ecff", filledBoxes:0 }
         ]
         this.currentPlayerIndex = 0
         this.currentPlayer =this.players[this.currentPlayerIndex]
