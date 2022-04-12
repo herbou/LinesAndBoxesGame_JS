@@ -53,16 +53,6 @@ class Box{
 			Game.instance.invokeEvent("boxFill", this)
 		}
 	}
-	/*
-	forceFill(color) {
-		if (!this.filled){
-			this.filled = true
-			this.remainingEdges = 0
-			this.ui.style.background = color
-
-			Game.instance.invokeEvent("boxFill", this)
-		}
-	}*/
 
 	createUI() {
 		const ui = document.createElement("div")
