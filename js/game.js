@@ -47,7 +47,7 @@ class Game {
         })
         
         setTimeout(() => {
-	    if (this.players[0].filledBoxes == this.players[1].filledBoxes{
+	    if (this.players[0].filledBoxes == this.players[1].filledBoxes){
             	this.playerNameUI.parentElement.textContent = "Nobody wins"
             	this.playerTurnBgUI.classList.add("no-win")
             	this.playerTurnBgUI.style.background = "#eaeaea"
