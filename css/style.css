@@ -141,7 +141,7 @@ body {
 	padding: 0.4rem;
 	display: flex;
 	justify-content: center;
-	gap:1.2rem;
+	gap:.5rem;
 }
 .player .filled-boxes {
 	display: inline-block;
