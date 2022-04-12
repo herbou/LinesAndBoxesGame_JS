@@ -3,7 +3,7 @@ class Game {
     static instance
 
 
-    constructor(rows, columns) {
+    constructor(rows, columns, playersCount) {
         if (Game.instance == null) 
             Game.instance = this
 
@@ -19,9 +19,17 @@ class Game {
         }
 
         this.players = [
-            { name:"Alex", color:"#ff50e5", filledBoxes:0 },
-            { name:"John", color:"#32ecff", filledBoxes:0 }
+            { name:"Aaa", color:"#ff50e5", filledBoxes:0 },
+            { name:"Bbb", color:"#32ecff", filledBoxes:0 },
+            { name:"Ccc", color:"#F6F54D", filledBoxes:0 },
+            { name:"Ddd", color:"#FEB139", filledBoxes:0 },
+            { name:"Eee", color:"#95CD41", filledBoxes:0 },
+            { name:"Fff", color:"#C59FC9", filledBoxes:0 }
         ]
+        let p = this.players.length-playersCount
+        for (let i=0; i<p; i++)
+            this.players.pop()
+
         this.currentPlayerIndex = 0
         this.currentPlayer =this.players[this.currentPlayerIndex]
         
@@ -47,15 +55,16 @@ class Game {
         })
         
         setTimeout(() => {
-	    if (this.players[0].filledBoxes == this.players[1].filledBoxes){
-            	this.playerNameUI.parentElement.textContent = "Nobody wins"
-            	this.playerTurnBgUI.classList.add("no-win")
-            	this.playerTurnBgUI.style.background = "#eaeaea"
-	    }else{
-            	this.playerNameUI.parentElement.textContent = `${player.name} wins`
-            	this.playerTurnBgUI.classList.add("win")
-            	this.playerTurnBgUI.style.background = player.color
-	    }
+            let p0 = this.players[0].filledBoxes
+            if (this.players.every(p => p.filledBoxes==p0)){
+                    this.playerNameUI.parentElement.textContent = "Nobody wins"
+                    this.playerTurnBgUI.classList.add("no-win")
+                    this.playerTurnBgUI.style.background = "#eaeaea"
+            }else{
+                    this.playerNameUI.parentElement.textContent = `${player.name} wins`
+                    this.playerTurnBgUI.classList.add("win")
+                    this.playerTurnBgUI.style.background = player.color
+            }
         }, 500)
     }
 
@@ -144,11 +153,9 @@ class Game {
 			{ targetBox:[1,0], edgesToFill:"left,bottom" }, 
 			{ targetBox:[1,1], edgesToFill:"bottom,right" }
 		]
-
 		boardData.forEach(data=>{
 			let box = this.board.boxes[data.targetBox[0]][data.targetBox[1]]
 			let edgePositions = data.edgesToFill.split(",")
-
 			edgePositions.forEach(pos=>{
 				let edge = box.getEdge(pos)
 				this.board.onEdgeClick(box, edge)
@@ -161,10 +168,11 @@ class Game {
 
 ///////////////////////////////////////////////////////////////////////
 
-const rows = prompt("Enter Board Rows :", 5) || 5
-const cols = prompt("Enter Board Columns :", 5) || 5
+const rows = Number(prompt("Enter Board Rows (min=5) :", 5) || 5)
+const cols = Number(prompt("Enter Board Columns (min=5) :", 5) || 5)
+
+const playersCount = Number(prompt("Enter Players Count (max=6) :", 2) || 2)
 
 
-const game = new Game(Number(rows), Number(cols))
+const game = new Game(rows<5?5:rows, cols<5?5:cols, playersCount>6?6:playersCount)
 //game.fillEdgesDefault()
-
