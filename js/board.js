@@ -166,7 +166,7 @@ class Board {
             this.isFillingAdjacentBoxes = false
             this.adjacentBoxesToFill = []
 
-            Game.instance.switchPlayer()
+            //Game.instance.switchPlayer()
          }, 600)
       }
    }
